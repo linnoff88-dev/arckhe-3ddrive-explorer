@@ -483,7 +483,9 @@
   }
 
   // --- Init ---
-  fetch('public/data.json')
+  // Detect base path for GitHub Pages
+  var basePath = location.pathname.substring(0, location.pathname.lastIndexOf('/') + 1);
+  fetch(basePath + 'public/data.json')
     .then(function(r) { return r.json(); })
     .then(function(d) {
       data = d;
